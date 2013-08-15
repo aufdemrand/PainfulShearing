@@ -1,3 +1,3 @@
 name: PainfulShearing
-main: io.github.NegroBob.PainfulShearing.SheepListener
+main: io.github.NegroBob.PainfulShearing.PainfulShearing
 version: 1
