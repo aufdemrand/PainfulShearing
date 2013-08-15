@@ -22,18 +22,21 @@ public class SheepListener extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler
-	public void onPlayerShearEntityEvent(PlayerShearEntityEvent Event){
+	public void onPlayerShear(PlayerShearEntityEvent event){
 		
-		Player shearer = Event.getPlayer();
-	    org.bukkit.Location spot = shearer.getLocation();
-		org.bukkit.entity.Entity sheared = Event.getEntity();
+		Player player = event.getPlayer();
+	    org.bukkit.Location spot = player.getLocation();
+	    org.bukkit.entity.Entity sheared = event.getEntity();
 		Random generator = new Random();
 		int chance = generator.nextInt(10) + 1;
 		
-		if(sheared instanceof Sheep && chance == 10){
-	
-			shearer.playSound(spot, Sound.GHAST_SCREAM, 1, 1);
+		if(sheared instanceof Sheep){
+			player.playSound(spot, Sound.GHAST_SCREAM, 1.0f, 1.0f);
+			player.sendMessage("That is a sheep");
 						
+		}else{
+			player.sendMessage("That isn't a sheep");
+			
 		}
 	}
 }
